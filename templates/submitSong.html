@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title> RaspyMusic ~ Play your music~ </title>
+    </head>
+    <body>
+      <h1> RaspyMusic Playlist </h1>
+      <form action="" method="post">
+        <fieldset>
+          <legend> Submit Song to Play </legend>
+          {{ form.csrf }}
+          <div class="input">
+            {{ form.songTitle.label }} {{ form.songTitle}}
+            {{ form.url.label }} {{ form.url }}
+          </div>
+          <div class="submit">
+            <input type="submit" value="Submit"/>
+          </div>
+        </fieldset>
+      </form>
+      <br>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+
+      {% for message in messages %}
+          {% if "Error" not in message[1]: %}
+              <div class="alert alert-info">
+              <strong>Success! </strong> {{ message[1] }}
+              </div>
+          {% endif %}
+      {% endfor %}
+          {% endif %}
+      {% endwith %}
+    </body>
+  </html>
