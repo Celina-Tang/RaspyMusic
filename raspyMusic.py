@@ -39,4 +39,4 @@ def raspyMusic():
     return render_template('submitSong.html', form=form)
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', debug = True)
+    app.run(host='192.168.1.2', debug=False)
